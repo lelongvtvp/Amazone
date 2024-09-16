@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            background-color: lightblue;
+            padding:5px ;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .image_zoom {
+            display: flex;
+            flex-direction: row;   
+            align-items: center;
+            justify-content: center;
+            margin-top: 100px;
+            gap: 200px;
+            cursor: pointer;
+        }
+        #zoom, #zoom1, #zoom2 {
+            transition: 1s;
+            height: 150px;
+            width: auto;
+            border: 1px black solid;
+            border-radius: 10px;
+            padding: 50px
+        }
+    </style>
+    <div class="container">
+        <input type="color" name="color" id="color" class="color">
+        <button id="color-change" class="bt-change">Change Color</button>
+    </div>
+    <div class="image_zoom">
+        <img src="./images/products/6-piece-non-stick-baking-set.webp" alt="" id="zoom">
+        <img src="./images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg" alt="" id="zoom1">
+        <img src="./images/products/athletic-cotton-socks-6-pairs.jpg" alt="" id="zoom2">
+    </div>
+    <script>
+        const inputColor = document.getElementById('color')
+        const buttonColor = document.getElementById('color-change')
+            buttonColor.addEventListener('click', ()=>{
+                document.body.style.backgroundColor=inputColor.value;
+            })
+        const zoomImg = document.getElementById('zoom')
+                zoomImg.addEventListener('mouseover', () => {
+                    zoomImg.style.transform = 'translate(-0250px,100px )'
+                })
+                zoomImg.addEventListener('mouseout', () => {
+                    zoomImg.style.transform = 'scale(1)'
+                })
+        const zoomImg1 = document.getElementById('zoom1')
+                zoomImg1.addEventListener('mouseover', () => {
+                  
+                    zoomImg1.style.transform = 'skew(15deg,10deg)'
+                })
+                zoomImg1.addEventListener('mouseout', () => {
+                    zoomImg1.style.transform = 'skew(0deg)'
+
+                })
+        const zoomImg2 = document.getElementById('zoom2')
+                zoomImg2.addEventListener('mouseover', () => {
+                    zoomImg2.style.transform = 'rotate(270deg)'
+                })
+                zoomImg2.addEventListener('mouseout', () => {
+                    zoomImg2.style.transform = 'rotate(0deg)'
+                })
+
+  </script>
+</body>
+</html>
